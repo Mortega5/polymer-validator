@@ -1,0 +1,46 @@
+body[ready] > *{
+  display: none;
+}
+body[ready] {
+  margin:25px 15px;
+}
+body[ready] > .name {
+  font-size:18px;
+  margin:10px 5px;;
+}
+body[ready] > ul {
+  display: block;
+  list-style-type: none;
+  font-size: 16;
+  font-weight: 200;
+  margin:15px 5px;
+}
+body[ready] > ul > li {
+  margin-left: 15px;
+  font-size:14px;
+}
+body[ready] .title {
+  margin:5px 0;
+  font-size:16px;
+}
+
+.success > li:before {
+  content: '✓';
+  font-size: 12px;
+  display: block;
+  float: left;
+  margin-right: 5px;
+  color: #00d6b2;
+}
+.fail > li:before {
+  content: '✖';
+  font-size: 12px;
+  display: block;
+  float: left;
+  margin-right: 5px;
+  color: #c00;
+}
+.property {
+  font-weight: bold;
+  font-style: italic;
+}

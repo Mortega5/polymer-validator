@@ -1,0 +1,32 @@
+{
+  "name": "polymer-validator",
+  "version": "1.0.0",
+  "description": "Validate types in polymer",
+  "main": "types.js",
+  "scripts": {
+    "test": "grunt"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-uglify": "^2.0.0",
+    "mocha": "^3.1.0",
+    "mocha-jsdom": "^1.1.0",
+    "path": "^0.12.7",
+    "wdio-mocha-framework": "^0.4.3",
+    "webpage": "^0.3.0"
+  },
+  "devDependencies": {
+    "grunt-connect": "^0.2.0",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-mocha": "^1.0.2",
+    "grunt-mocha-phantomjs": "^4.0.0",
+    "phantomjs": "^2.1.7",
+    "selenium-standalone": "^5.7.2",
+    "system": "^1.0.6",
+    "utils": "^0.3.1",
+    "wdio-mocha-framework": "^0.4.3"
+  }
+}

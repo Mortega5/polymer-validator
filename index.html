@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="validator.js"></script>
+    <meta charset="utf-8">
+    <title>Testing validator</title>
+  </head>
+  <body>
+
+  <script>
+  var test = {
+    'String': 'test_string',
+    'Number':123.123,
+    'Object': {test:'test'},
+    'Array': [1,2,3],
+    'Date': new Date(),
+    "Function": function(){},
+    "Integer": 121,
+    "PositiveInteger": 1,
+    "NegativeInteger": -1,
+    'HTMLElement': document.createElement('div')
+  }
+  var body = document.querySelector('body');
+  var list = document.createElement('UL');
+  body.appendChild(list);
+  var result = {}
+  for (var key in test){
+    if (test.hasOwnProperty(key)){
+      result.key = Validator.validate(key,test[key]);
+      console.log(key, ' resultado: ' + result.key);
+      var li = document.createElement('LI');
+      li.innerHTML = key + ' : ' + result.key;
+      list.appendChild(li);
+    }
+  }
+  </script>
+  </body>
+</html>
