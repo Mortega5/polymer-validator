@@ -225,9 +225,9 @@
       }
       var pushData = function(res){
         if (!res){
-          errors.push({property: property,component:component,type:properties[property].type, passed:res,phase:'definition'});
+          errors.push({property: property,component:component,type:properties[property].type, passed:res,phase:'definition',value:component[property]});
         } else {
-          passed.push({property: property,component:component,type:properties[property].type, passed:res,phase:'definition'});
+          passed.push({property: property,component:component,type:properties[property].type, passed:res,phase:'definition',value:component[property]});
         }
 
       };
@@ -235,9 +235,9 @@
         var property = e.type.match(/([\S]*)-changed/)[1];
         Validator.checkType(properties[property].type, component[property], function(res){
           if (!res){
-            errors.push({property: property,component:component,type:properties[property].type, passed:res,phase:'change'});
+            errors.push({property: property,component:component,type:properties[property].type, passed:res,phase:'change',value:component[property]});
           } else {
-            passed.push({property: property,component:component,type:properties[property].type, passed:res,phase:'change'});
+            passed.push({property: property,component:component,type:properties[property].type, passed:res,phase:'change',value:component[property]});
           }
         });
       };
@@ -284,7 +284,7 @@
         for (var j=0;j<passed.length;j++){
           var div_pas = document.createElement('LI');
           div_pas.innerHTML = '<span class="property">' + passed[j].property + '</span> is type  ' + passed[j].type + ' in ' + passed[j].phase + ' phase';
-          div_pas.className = 'validator item'
+          div_pas.className = 'validator item';
           div_passed.appendChild(div_pas);
         }
         body.appendChild(component_name);

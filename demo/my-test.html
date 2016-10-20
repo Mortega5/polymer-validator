@@ -16,25 +16,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
   <title>google-geocoding Demo</title>
   <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
   <script src="../validator.js"></script>
   <link rel="import" href="../bower_components/google-geocoding/google-geocoding.html">
   <link rel="stylesheet" type="text/css" href="../validator.css"/>
 </head>
 <body unresolved>
-  <template is="dom-bind" id="bind">
-    <google-geocoding data="{{data}}" id="geo" city="Madrid" api_key="AIzaSyC3shMTM6dD10MGqty-xugLBUFSCTICeBM" on-google-geocoding-response="ready"></google-geocoding>
-    <template is="dom-repeat" items="{{data}}">
-      <br />
-      <div>
-        {{item.formatted_address}}: long: {{item.geometry.location.lng}}, lat:{{item.geometry.location.lat}}
-      </div>
+    <template is="dom-bind" id="bind">
+      <google-geocoding data="{{data}}" id="geo" city="Madrid" api_key="AIzaSyC3shMTM6dD10MGqty-xugLBUFSCTICeBM" on-google-geocoding-response="ready"></google-geocoding>
     </template>
-    <template is="dom-if" if="{{empty}}">
-      <p>
-        Sorry, Geocoding doesn't found any location with this name
-      </p>
-    </template>
-  </template>
 
   <script>
   window.addEventListener('WebComponentsReady', function(e) {
