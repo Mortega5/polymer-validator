@@ -9,28 +9,20 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chai": "^3.5.0",
     "commander": "^2.9.0",
-    "grunt": "^1.0.1",
-    "grunt-contrib-uglify": "^2.0.0",
-    "mocha": "^3.1.0",
-    "mocha-jsdom": "^1.1.0",
     "path": "^0.12.7",
-    "selenium-webdriver": "^2.53.3",
-    "wdio-mocha-framework": "^0.4.3",
-    "webpage": "^0.3.0"
+    "selenium-webdriver": "^2.53.3"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "chromedriver": "^2.24.1",
+    "grunt": "^1.0.1",
     "grunt-connect": "^0.2.0",
     "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-uglify": "^2.0.0",
     "grunt-mocha": "^1.0.2",
     "grunt-mocha-phantomjs": "^4.0.0",
-    "npm-path": "^2.0.2",
-    "phantomjs": "^2.1.7",
-    "selenium-standalone": "^5.7.2",
-    "system": "^1.0.6",
-    "utils": "^0.3.1",
-    "wdio-mocha-framework": "^0.4.3"
+    "mocha": "^3.1.2",
+    "phantomjs": "^2.1.7"
   }
 }

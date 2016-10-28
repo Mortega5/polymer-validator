@@ -127,7 +127,7 @@
       "type": 'complexType',
       "validateFn": function(coordinates,contents, cb){
         var result= false;
-        if (coordinates instanceof Object && coordinates.longitude && coordinates.latitude) {
+        if (coordinates instanceof Object && typeof(coordinates.longitude) !== 'undefined' && typeof(coordinates.latitude) !== 'undefined') {
           // coordinates are numbers
           result = types.Number.validateFn(coordinates.longitude) && types.Number.validateFn(coordinates.latitude);
           // check latitude is between -90 and +90
