@@ -94,11 +94,21 @@ Valida un elemento polymer o varios si se le pasa una lista de elementos.
       executable: function que se ejecuta cuando se valida el componente, si es una lista de componente se puede pasar una lista de funciones a executar en el mismo orden que se reciben los componentes
       timeout: tiempo de espera hasta que el componente termine
     }
+
 ### `Validator.extendTypes(custom_type)`
   Permite extender y cambiar las propiedades que se validan asi como sus funciones
 
-  * `custom_type` Objeto con las nuevas propiedades a definir. Deben tener el formato adecuado:{type:'simpleType or complexType', validateFn: function(value, contents, cb){//function que valide}}
-
+  * `custom_type` Objeto con las nuevas propiedades a definir. Deben tener el formato adecuado:
+  
+```javascript
+  {
+   type:'simpleType or complexType',
+   validateFn: function(value, contents, cb){
+    //function que valide
+   }
+  }
+```
+  
   `value` es el valor que encuentra de entrada a la hora de Validator
   `contents` es la lista de propiedades anidadas, para validar propiedades del estilo Array.Number
   `cb` function de callback donde se le pasa el booleano con el resultado de la comprobación
