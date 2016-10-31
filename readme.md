@@ -100,14 +100,14 @@ Valida un elemento polymer o varios si se le pasa una lista de elementos.
 
   * `custom_type` Objeto con las nuevas propiedades a definir. Deben tener el formato adecuado:
   
-```javascript
-  {
-   type:'simpleType or complexType',
-   validateFn: function(value, contents, cb){
-    //function que valide
+ ```javascript
+   {
+    type:'simpleType or complexType',
+    validateFn: function(value, contents, cb){
+     //function que valide
+    }
    }
-  }
-```
+ ```
   
   `value` es el valor que encuentra de entrada a la hora de Validator
   `contents` es la lista de propiedades anidadas, para validar propiedades del estilo Array.Number
