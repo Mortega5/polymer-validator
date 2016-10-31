@@ -60,7 +60,7 @@ Valida valor en un determinado typo.
 
   * `type` es el tipo con el que queremos comprar `value`
   * `value` es el dato que vamos a comprobar si es es del `type` indicado
-  * `cb` callback ejecutado una vez se termine de comprobar el tipo
+  * `cb` callback ejecutado una vez se termine de comprobar el tipo. Recibe el booleano del resultado de la validación
 
 ### `Validator.validate(list, cb, conf)`
 
