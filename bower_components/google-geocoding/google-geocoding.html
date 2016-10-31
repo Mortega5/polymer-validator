@@ -158,7 +158,7 @@ Polymer({
     },
     locations: {
       type: 'Coordinates',
-      value: function(){return {latitude:'',longitude:''}},
+      value: function(){return {latitude:null,longitude:null}},
       bind: 'output',
       notify: true
     }
@@ -201,8 +201,7 @@ Polymer({
   },
   _geocodingResponse: function(e,res){
     this.fire('google-geocoding-response',{response:res,data:res.response.results});
-    this.set('locations',[]);
-    this.push('locations',{longitude:res.response.results[0].geometry.location.lng,latitude:res.response.results[0].geometry.location.lat})
+    this.set('locations',{longitude:res.response.results[0].geometry.location.lng,latitude:res.response.results[0].geometry.location.lat})
     this.set('data',res.response.results);
   },
   _gecodingError: function(e){

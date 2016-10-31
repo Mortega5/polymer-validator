@@ -34,10 +34,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     var properties = ggeo.properties;
     var events = [];
 
-    Validator.validateComponent(ggeo, function(results){
+    Validator.validate(ggeo, function(results){
       console.log(results);
-    })
-    ggeo.generateRequest();
+    }, {
+      executable: function(){ggeo.generateRequest()},
+      timeout:20000
+    });
   });
   </script>
 </body>

@@ -6,7 +6,7 @@ body[ready] {
 }
 body[ready] > .name {
   font-size:18px;
-  margin:10px 5px;;
+  display: inline;
 }
 body[ready] > ul {
   display: block;

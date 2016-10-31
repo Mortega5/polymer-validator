@@ -128,12 +128,17 @@
       "validateFn": function(coordinates,contents, cb){
         var result= false;
         if (coordinates instanceof Object && typeof(coordinates.longitude) !== 'undefined' && typeof(coordinates.latitude) !== 'undefined') {
+          // If coordinates is empty
+          if (!coordinates.longitude && !coordinates.longitude){
+            result = true;
+          } else {
           // coordinates are numbers
           result = types.Number.validateFn(coordinates.longitude) && types.Number.validateFn(coordinates.latitude);
           // check latitude is between -90 and +90
           result = coordinates.latitude < 90 && coordinates.latitude > -90 && result;
           // check longitude is between -180 and +180
           result = coordinates.longitude < 180 && coordinates.longitude > -180 && result;
+        }
         }
         if (cb){
           cb(result);
@@ -202,19 +207,24 @@
         this._types[type].validateFn(value,content,cb);
       }
     };
-    Validator.prototype.validate = function(list, cb){
+    Validator.prototype.validate = function(list, cb, conf){
+      // If conf is a executable function we put it in an object
+      if (typeof(conf) === 'function'){
+        conf = {executable:conf};
+      }
       // single component
       if (list instanceof HTMLElement){
-        this.validateComponent(list,cb);
+        this.validateComponent(list,cb, conf);
       } else if (list instanceof Array){
         for (var i=0;i<list.length;i++){
-          this.validateComponent(list[i],cb);
+          this.validateComponent(list[i],cb, conf[list[i]]);
         }
       }
     };
-    Validator.prototype.validateComponent = function(component,cb, timeout){
+    Validator.prototype.validateComponent = function(component,cb, conf){
       var errors = [];
       var passed = [];
+      conf = conf || {};
       if (!component){
         console.error('Error: component is not defined');
         return;
@@ -251,7 +261,9 @@
           }
         }
       }
-      //'✓'
+      // Execute a code after load the component
+      if (conf.executable) conf.executable();
+
       var createReport = function(name, passed, errors){
         var body = document.querySelector('body');
         body.setAttribute('ready',true);
@@ -299,7 +311,7 @@
         cb({passed: passed, errors:errors});
         createReport(component.tagName, passed,errors);
 
-      }.bind(this),timeout|| 3000);
+      }.bind(this),conf.timeout|| 3000);
     };
     return new Validator();
   })(types);
