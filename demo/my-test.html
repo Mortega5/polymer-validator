@@ -28,17 +28,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <script>
   window.addEventListener('WebComponentsReady', function(e) {
-
     var bind = document.querySelector('#bind');
     var ggeo = bind.$.geo;
-    var properties = ggeo.properties;
-    var events = [];
-
+    Validator.extendTypes({'test':{type:'simpleType', validateFn:function(e){console.log(e)}}})
     Validator.validate(ggeo, function(results){
       console.log(results);
     }, {
-      executable: function(){ggeo.generateRequest()},
-      timeout:20000
+      executable: function(){ggeo.generateRequest()}
     });
   });
   </script>
