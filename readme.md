@@ -9,6 +9,7 @@ La función `validateFn(value,contents)` recibe dos argumento:
   * `contents`: Es una lista con los subtipos que se definen para los elementos
   internos. Es utilizado para, por ejemplo, en tipos como array definir de que
   tipo tienen que ser los valores que encontramos dentro del array.
+
 Ejemplo de tipo
 
 ```javascript
@@ -109,9 +110,9 @@ Valida un elemento polymer o varios si se le pasa una lista de elementos.
    }
  ```
   
-  `value` es el valor que encuentra de entrada a la hora de Validator
-  `contents` es la lista de propiedades anidadas, para validar propiedades del estilo Array.Number
-  `cb` function de callback donde se le pasa el booleano con el resultado de la comprobación
+  * `value` es el valor que encuentra de entrada a la hora de Validator
+  * `contents` es la lista de propiedades anidadas, para validar propiedades del estilo Array.Number
+  * `cb` function de callback donde se le pasa el booleano con el resultado de la comprobación
 
 ### `Validator._type`
   Lista de los tipos que es capaz de manejar con sus funciones y sus subtipos
