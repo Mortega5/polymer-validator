@@ -13,7 +13,8 @@ module.exports = function(grunt) {
       all:['test/*.html'],
       options: {
         run:true,
-        log:true
+        log:true,
+        timeout:10000
       }
     },
     uglify: {

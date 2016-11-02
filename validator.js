@@ -296,6 +296,8 @@
           }
           this.validateComponent(list[i],cb, custom_config);
         }
+      } else {
+        cb({error:'First argument must be a HTMLElement or an Array of HTMLElement'});
       }
     };
     /**
@@ -313,10 +315,12 @@
       var passed = [];
       conf = conf || {};
       if (!component){
+        cb({error:'Component is not defined'});
         console.error('Error: component is not defined');
         return;
       }
       if (!component.properties){
+        cb({error:'Component has not properties'});
         console.error('Error: component has not properties or is not a polymer element');
         return ;
       }
@@ -352,7 +356,6 @@
       if (conf.executable) conf.executable();
       setTimeout(function(){
         cb({passed: passed, errors:errors});
-        console.log(this);
         Validator._createReport(component.tagName, passed,errors);
 
       }.bind(this),conf.timeout|| 3000);

@@ -1,3 +1,4 @@
-!test_component/google-geocoding/*
+!test_component/google-geocoding
+!test_component
 node_modules
 test_component/*

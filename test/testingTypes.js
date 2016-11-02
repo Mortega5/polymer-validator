@@ -154,7 +154,7 @@ describe('Testing diferent types using Validator', function(){
 
   it('[Coordinates]  Check if a coordinates is detected as Coordinates (complexType)', function(done){
     var coordinates = {longitude: 12.3412,latitude:12.312};
-    setPromises(5);
+    setPromises(6);
     Validator.checkType('Coordinates',coordinates,function(res){
       assert.isTrue(res,'');
       resolvePromise(done);
@@ -165,6 +165,10 @@ describe('Testing diferent types using Validator', function(){
       resolvePromise(done);
     });
 
+    Validator.checkType('Coordinates',{latitude:null,longitude:null},function(res){
+        assert.isTrue(res,'{latitude:null,longitude:null} is a correct Coordinate object');
+        resolvePromise(done);
+    });
 
     coordinates.longitude = undefined;
     Validator.checkType('Coordinates',coordinates,function(res){
